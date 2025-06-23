@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Report Card</title>
+<style>
+    body { font-family: Arial; margin: 30px; background: #52e7b1; }
+    .card { background: rgb(241, 241, 243); padding: 20px; width: 300px; border-radius: 10px; box-shadow: 0 0 10px #aaa; }
+    h2 { color: #333; }
+    .line { margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<div class="card" id="reportCard">
+<h2>Student Report Card</h2>
+<div class="line" id="name"></div>
+<div class="line" id="roll"></div>
+<div class="line" id="marks"></div>
+<div class="line" id="total"></div>
+<div class="line" id="average"></div>
+</div>
+
+<script>
+    // Step 1: Create Student Object
+    const student = {
+      name: "Sampriti Sadhukhan",
+      roll: 101,
+      marks: { math: 80, science: 75, english: 85 },
+      total: function() {
+        return this.marks.math + this.marks.science + this.marks.english;
+      },
+      average: function() {
+        return this.total() / 3;
+      }
+    };
+
+    // Step 2: Display Data
+    document.getElementById("name").innerText = "Name: " + student.name;
+    document.getElementById("roll").innerText = "Roll No: " + student.roll;
+    document.getElementById("marks").innerText =
+      "Marks - Math: " + student.marks.math + ", Science: " + student.marks.science + ", English: " + student.marks.english;
+    document.getElementById("total").innerText = "Total Marks: " + student.total();
+    document.getElementById("average").innerText = "Average Marks: " + student.average().toFixed(2);
+</script>
+
+</body>
+</html>
